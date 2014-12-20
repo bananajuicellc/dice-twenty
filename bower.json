@@ -1,0 +1,29 @@
+{
+  "name": "d20",
+  "version": "0.0.0",
+  "authors": [
+    "Tim Swast <tswast@gmail.com>"
+  ],
+  "description": "A 20-sided dice roller.",
+  "main": "d20.html",
+  "keywords": [
+    "d20",
+    "dice",
+    "random"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "~0.5.2",
+    "core-header-panel": "Polymer/core-header-panel#~0.5.2",
+    "core-toolbar": "Polymer/core-toolbar#~0.5.2",
+    "paper-tabs": "Polymer/paper-tabs#~0.5.2"
+  }
+}
