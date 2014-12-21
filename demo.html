@@ -1,20 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <title>d20</title>
-  <meta name="viewport"
-    content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  
+
+<head>
+  <title>dice-twenty</title>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
   <script src="../webcomponentsjs/webcomponents.js">
   </script>
-  
-  <link rel="import"
-      href="../core-header-panel/core-header-panel.html">
-<link rel="import"
-  href="../core-toolbar/core-toolbar.html">
-<link rel="import"
-  href="../paper-tabs/paper-tabs.html">
-  
-  <body unresolved>
-  hello
-  </body>
+
+  <link rel="import" href="../paper-button/paper-button.html">
+  <link rel="import" href="../dice-twenty/dice-twenty.html">
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      background-color: #E5E5E5;
+      font-family: 'RobotoDraft', sans-serif;
+    }
+    .dice-card {
+      display: block;
+      position: relative;
+      background-color: white;
+      padding: 20px;
+      margin: 10px;
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+    dice-twenty {
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    paper-button {
+      margin: 10px;
+      background-color: #2196F3;
+      color: white;
+    }
+  </style>
+</head>
+
+<body unresolved>
+  <div class="dice-card">
+    <dice-twenty id="dice-twenty"></dice-twenty>
+    <paper-button raised onClick="document.getElementById('dice-twenty').value = Math.floor(Math.random() * 20 + 1);">Roll</paper-button>
+  </div>
+</body>
+
 </html>
