@@ -9,7 +9,7 @@
   </script>
 
   <link rel="import" href="../paper-button/paper-button.html">
-  <link rel="import" href="../dice-twenty/dice-twenty.html">
+  <link rel="import" href="../dice-twenty/dice-twenty-card.html">
 
   <style>
     html,
@@ -19,21 +19,13 @@
       background-color: #E5E5E5;
       font-family: 'RobotoDraft', sans-serif;
     }
-    .dice-card {
-      display: block;
-      position: relative;
-      background-color: white;
-      padding: 20px;
-      margin: 10px;
-      font-size: 1.2rem;
-      font-weight: 300;
+    dice-twenty-card::shadow paper-button {
+      background-color: #2196F3;
+      color: white;
     }
-    dice-twenty {
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    paper-button {
-      margin: 10px;
+  </style>
+  <style shim-shadowdom>
+    dice-twenty-card paper-button {
       background-color: #2196F3;
       color: white;
     }
@@ -41,10 +33,9 @@
 </head>
 
 <body unresolved>
-  <div class="dice-card">
-    <dice-twenty id="dice-twenty"></dice-twenty>
-    <paper-button raised onClick="document.getElementById('dice-twenty').value = Math.floor(Math.random() * 20 + 1);">Roll</paper-button>
-  </div>
+  <dice-twenty-card>
+    The person who rolls the highest.
+  </dice-twenty-card>
 </body>
 
 </html>

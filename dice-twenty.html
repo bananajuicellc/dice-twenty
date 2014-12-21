@@ -1,7 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../core-icon-button/core-icon-button.html">
 
-<polymer-element name="dice-twenty">
+<polymer-element name="dice-twenty" attributes="value">
   <template>
     <style>
       :host {
@@ -32,7 +31,7 @@
       }
     </style>
 
-    <div class="dice-value"layout horizontal center-justified>
+    <div class="dice-value" layout horizontal center-justified>
       {{value}}
     </div>
   </template>

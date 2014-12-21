@@ -1,0 +1,40 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../dice-twenty/dice-twenty.html">
+
+<polymer-element name="dice-twenty-card">
+  <template>
+    <style>
+      :host {
+        display: block;
+        position: relative;
+        width: 100%;
+        font-size: 1.2rem;
+        font-weight: 300;
+        background-color: white;
+        padding-bottom: 10px;
+      }
+      #dice_twenty {
+        font-size: 200%;
+      }
+      #dice_card {
+        margin: 0px;
+        padding: 10px;
+      }
+    </style>
+
+    <div id="dice_card">
+      <content></content>
+    </div>
+    <dice-twenty id="dice_twenty" value="{{value}}"></dice-twenty>
+    <paper-button id="dice_twenty_roll_button" horizontal layout center-justified raised on-click="{{roll}}">Roll</paper-button>
+  </template>
+
+  <script>
+    Polymer('dice-twenty-card', {
+      roll: function () {
+        this.value = Math.floor(Math.random() * 20 + 1);
+      }
+    });
+  </script>
+</polymer-element>
