@@ -26,14 +26,14 @@
     <div id="dice_card">
       <content></content>
     </div>
-    <dice-twenty id="dice_twenty" value="{{value}}"></dice-twenty>
-    <paper-button id="dice_twenty_roll_button" horizontal layout center-justified raised on-click="{{roll}}">Roll</paper-button>
+    <dice-twenty id="dice_twenty"></dice-twenty>
+    <paper-button id="dice_twenty_roll_button" horizontal layout center-justified raised on-click="{{roll}}">Roll a D20</paper-button>
   </template>
 
   <script>
     Polymer('dice-twenty-card', {
       roll: function () {
-        this.value = Math.floor(Math.random() * 20 + 1);
+        this.$.dice_twenty.roll();
       }
     });
   </script>

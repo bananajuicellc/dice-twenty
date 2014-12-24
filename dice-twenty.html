@@ -1,6 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 
-<polymer-element name="dice-twenty" attributes="value">
+<polymer-element name="dice-twenty">
   <template>
     <style>
       :host {
@@ -29,16 +29,151 @@
         border-radius: 50%;
         margin: 10px;
       }
+      #dice-value {
+        perspective: 100px;
+        text-align: center;
+        color: #aaa;
+      }
+      #dice-value-left {
+        position: relative;
+        top: -.5em;
+        right: -1.1em;
+        width: 2em;
+        transform: rotate3d(1, 0, -1.732050808
+        /* sqrt(3) */
+        , 72deg
+        /* regular pentagon */
+        );
+        -webkit-transform: rotate3d(1, 0, -1.732050808
+        /* sqrt(3) */
+        , 72deg
+        /* regular pentagon */
+        );
+      }
+      #dice-value-center {
+        position: relative;
+        height: 1.5em;
+        width: 2em;
+        color: black;
+      }
+      #dice-value-right {
+        position: relative;
+        top: -.5em;
+        left: -1em;
+        width: 2em;
+        transform: rotate3d(1, 0, 1.732050808, 72deg);
+        -webkit-transform: rotate3d(1, 0, 1.732050808, 72deg);
+      }
+      #dice-value-bottom {
+        position: relative;
+        top: -.5em;
+        width: 2em;
+        transform: rotate3d(0, 0.5, 1, -180deg);
+        -webkit-transform: rotate3d(0, 0.5, 1, -180deg);
+      }
     </style>
 
-    <div class="dice-value" layout horizontal center-justified>
-      {{value}}
+    <div id="dice-value">
+      <div layout horizontal center-justified>
+        <div id="dice-value-left">{{leftValue}}</div>
+        <div id="dice-value-center">{{value}}</div>
+        <div id="dice-value-right">{{rightValue}}</div>
+      </div>
+      <div layout horizontal center-justified>
+        <div id="dice-value-bottom">{{bottomValue}}</div>
+      </div>
     </div>
   </template>
 
   <script>
+    var leftValues = {
+      1: 7,
+      2: 12,
+      3: 17,
+      4: 18,
+      5: 18,
+      6: 9,
+      7: 15,
+      8: 16,
+      9: 6,
+      10: 17,
+      11: 9,
+      12: 10,
+      13: 11,
+      14: 4,
+      15: 5,
+      16: 6,
+      17: 10,
+      18: 5,
+      19: 3,
+      20: 2
+    };
+
+    var rightValues = {
+      1: 19,
+      2: 18,
+      3: 16,
+      4: 11,
+      5: 15,
+      6: 16,
+      7: 17,
+      8: 10,
+      9: 11,
+      10: 12,
+      11: 4,
+      12: 15,
+      13: 5,
+      14: 6,
+      15: 12,
+      16: 3,
+      17: 3,
+      18: 4,
+      19: 9,
+      20: 14
+    };
+
+    var bottomValues = {
+      1: 13,
+      2: 20,
+      3: 19,
+      4: 14,
+      5: 13,
+      6: 14,
+      7: 1,
+      8: 20,
+      9: 19,
+      10: 8,
+      11: 13,
+      12: 2,
+      13: 1,
+      14: 20,
+      15: 7,
+      16: 8,
+      17: 7,
+      18: 2,
+      19: 1,
+      20: 8
+    };
+
     Polymer('dice-twenty', {
-      value: 20
+      value: 20,
+      leftValue: leftValues[20],
+      rightValue: rightValues[20],
+      bottomValue: bottomValues[20],
+      animationFrame: 0,
+
+      roll: function () {
+        if (this.animationFrame > 8) {
+          this.animationFrame = 0;
+          return;
+        }
+        this.value = Math.floor(Math.random() * 20) + 1;
+        this.leftValue = leftValues[this.value];
+        this.rightValue = rightValues[this.value];
+        this.bottomValue = bottomValues[this.value];
+        this.animationFrame += 1;
+        this.async(this.roll);
+      }
     });
   </script>
 </polymer-element>

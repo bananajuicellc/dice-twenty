@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "authors": [
     "Tim Swast <tswast@gmail.com>",
-    "Alex Swast <aswastcode@swast.net"
+    "Alex Swast <aswastcode@swast.net>"
   ],
   "description": "A 20-sided dice roller.",
   "main": [
