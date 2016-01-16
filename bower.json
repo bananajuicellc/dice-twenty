@@ -1,11 +1,15 @@
 {
-  "name": "d20",
+  "name": "dice-twenty",
   "version": "0.0.0",
   "authors": [
-    "Tim Swast <tswast@gmail.com>"
+    "Tim Swast <tswast@gmail.com>",
+    "Alex Swast <aswastcode@swast.net>"
   ],
   "description": "A 20-sided dice roller.",
-  "main": "d20.html",
+  "main": [
+    "dice-twenty.html",
+    "dice-twenty-card.html",
+  ],
   "keywords": [
     "d20",
     "dice",
